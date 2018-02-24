@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ObjectSelectorTheme">
+        <attr name="isMultipleSelection" format="boolean"/>
+        <attr name="withValues" format="boolean" />
+        <attr name="enableSearchView" format="boolean" />
+        <attr name="searchDrawable" format="reference" />
+        <attr name="searchCancelDrawable" format="reference" />
+        <attr name="searchHintColor" format="reference" />
+        <attr name="searchHintText" format="reference" />
+        <attr name="searchTextColor" format="reference" />
+        <attr name="searchBackgroundColor" format="reference" />
+        <attr name="searchSpacerBackgroundColor" format="reference" />
+        <attr name="searchCornerRadius" format="reference" />
+        <attr name="objectClass" format="reference" />
+        <attr name="listItemHeight" format="reference" />
+        <attr name="textNormalColor" format="reference" />
+        <attr name="textSelectedColor" format="reference" />
+        <attr name="textSize" format="reference" />
+        <attr name="textMarginStartPercent" format="float" />
+        <attr name="listItemBackgroundColor" format="reference" />
+        <attr name="normalTickColor" format="reference" />
+        <attr name="tickDrawable" format="reference" />
+        <attr name="tickMarginEndPercent" format="float" />
+        <attr name="listItemSeparatorColor" format="reference" />
+        <attr name="listItemSeparatorHeight" format="reference" />
+    </declare-styleable>
+</resources>

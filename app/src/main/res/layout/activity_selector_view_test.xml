@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:selector="http://schemas.android.com/apk/res-auto"
+    tools:context="selectorexample.androidapp.com.selectorviewexample.SelectorViewTest">
+
+    <com.emcy.selector.SelectorView
+        android:id="@+id/selector1"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        selector:objectClass="@string/dummy_object"
+        selector:textSelectedColor="@color/black"
+        selector:textSize="@dimen/text_size" />
+
+    <com.emcy.selector.SelectorView
+        android:id="@+id/selector2"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        selector:enableSearchView="true"
+        selector:objectClass="@string/dummy_object"
+        selector:textSelectedColor="@color/black"
+        selector:textSize="@dimen/text_size" />
+
+    <com.emcy.selector.SelectorView
+        android:id="@+id/selector3"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        selector:isMultipleSelection="true"
+        selector:objectClass="@string/dummy_object"
+        selector:textSelectedColor="@color/black"
+        selector:textSize="@dimen/text_size" />
+
+    <com.emcy.selector.SelectorView
+        android:id="@+id/selector4"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        selector:enableSearchView="true"
+        selector:isMultipleSelection="true"
+        selector:objectClass="@string/dummy_object"
+        selector:textSelectedColor="@color/black"
+        selector:textSize="@dimen/text_size" />
+
+    <com.emcy.selector.SelectorView
+        android:id="@+id/selector5"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        selector:withValues="true"
+        selector:textSelectedColor="@color/black"
+        selector:textSize="@dimen/text_size" />
+
+    <com.emcy.selector.SelectorView
+        android:id="@+id/selector6"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        selector:enableSearchView="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        selector:withValues="true"
+        selector:textSelectedColor="@color/black"
+        selector:textSize="@dimen/text_size" />
+
+    <com.emcy.selector.SelectorView
+        android:id="@+id/selector7"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        selector:isMultipleSelection="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        selector:withValues="true"
+        selector:textSelectedColor="@color/black"
+        selector:textSize="@dimen/text_size" />
+
+    <com.emcy.selector.SelectorView
+        android:id="@+id/selector8"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        selector:enableSearchView="true"
+        selector:isMultipleSelection="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        selector:withValues="true"
+        selector:textSelectedColor="@color/black"
+        selector:textSize="@dimen/text_size" />
+
+</android.support.constraint.ConstraintLayout>

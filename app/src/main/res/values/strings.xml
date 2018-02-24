@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SelectorViewExample</string>
+    <string name="dummy_object">selectorexample.androidapp.com.selectorviewexample.Dummy</string>
+</resources>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Selector</string>
+    <string name="unknown_class">Unknown class. Set attribute (objectClass) in xml as string resource</string>
+    <string name="abstract_class_not_properly_implemented">SelectorDataGetter not implemented properly</string>
+    <string name="object_class_null">Object class is null</string>
+    <string name="search_hint">Search…</string>
+    <string name="no_values_found">No values found</string>
+    <string name="wrong_arguments">Wrong arguments</string>
+    <string name="have_to_set_values">You have to set values</string>
+    <string name="set_values_true">Set withValues attribute to true in xml</string>
+    <string name="set_multiple_false">Set isMultipleSelection attribute to false in xml</string>
+    <string name="set_multiple_true">Set isMultipleSelection attribute to true in xml</string>
+    <string name="set_values_false">Set withValues attribute to false in xml</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="an_error_occurred">An error occurred</string>
+    <string name="selector">Selector</string>
+    <string name="or_values_true">or set attribute (withValues) to true</string>
+    <string name="cannot_have_object_class_and_values">You cannot set objectClass and withValues attributes at the same time</string>
+    <string name="expected_object_listener">Incompatible callback. Expected setOnObjectSelectorListener but found setOnValueSelectorListener</string>
+    <string name="expected_values_listener">Incompatible callback. Expected setOnValueSelectorListener but found setOnObjectSelectorListener</string>
+</resources>
