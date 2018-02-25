@@ -57,14 +57,14 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
     public void onSingleValueActivity(View view) {
         ValuesSelectorBuilder.with(this)
                 .setDisplayValues(getDisplayedValues())
-                .setSelectedValue("smallin 3")
+                .setSelectedValue("Value 3")
                 .startActivityForResult(this, getSelectorAttrsForActivity());
     }
 
     public void onSingleValueActivitySearch(View view) {
         ValuesSelectorBuilder.with(this)
                 .setDisplayValues(getDisplayedValues())
-                .setSelectedValue("smallin 3")
+                .setSelectedValue("Value 3")
                 .startActivityForResult(this, getSelectorAttrsForActivitySearch());
     }
 
@@ -118,14 +118,14 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
     public void onSingleValueFragment(View view) {
         ValuesSelectorBuilder.with(this)
                 .setDisplayValues(getDisplayedValues())
-                .setSelectedValue("smallin 3")
+                .setSelectedValue("Value 3")
                 .showBottomDialogFragment(this, getSelectorAttrsForBottom());
     }
 
     public void onSingleValueFragmentSearch(View view) {
         ValuesSelectorBuilder.with(this)
                 .setDisplayValues(getDisplayedValues())
-                .setSelectedValue("smallin 3")
+                .setSelectedValue("Value 3")
                 .showBottomDialogFragment(this, getSelectorAttrsForBottomSearch());
     }
 
@@ -202,8 +202,8 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
 
     private List<String> getSelectedValues() {
         List<String> stringList = new ArrayList<>();
-        stringList.add("smallin 2");
-        stringList.add("smallin 4");
+        stringList.add("Value 2");
+        stringList.add("Value 4");
         return stringList;
     }
 
@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
     private List<String> getDisplayedValues() {
         List<String> array = new ArrayList<>();
         for (int x = 0; x < 200; x++) {
-            array.add("smallin " + x);
+            array.add("Value " + x);
         }
         return array;
     }

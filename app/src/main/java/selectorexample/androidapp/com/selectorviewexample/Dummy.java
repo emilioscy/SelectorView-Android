@@ -36,7 +36,7 @@ public class Dummy extends SelectorDataGetter<Dummy> {
     private List<Dummy> createData() {
         List<Dummy> list = new ArrayList<>();
         for (int x = 0; x < 20; x++) {
-            list.add(new Dummy(("MyName is : " + x), x));
+            list.add(new Dummy(("Model : " + x), x));
         }
         return list;
     }
