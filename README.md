@@ -1,5 +1,5 @@
 # SelectorView-Android
-# 
+
 **Description**
 
 This library was developed for fast and easy build of a list of attributes for selection.
