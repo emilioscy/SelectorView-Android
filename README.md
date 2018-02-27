@@ -51,7 +51,7 @@ public void startActivityForResult(View view) {
 The first argument ```.with(this)``` is callback of class `OnObjectSelectorListener` which implements three functions.
 
 ```
-   @Override
+    @Override
     public void onObjectClick(long id) {
     }
 
