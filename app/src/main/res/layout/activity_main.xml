@@ -11,26 +11,26 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleObjectActivity"-->
-            <!--android:text="Single Object Activity" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleObjectActivity"
+            android:text="Single Object Activity" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleObjectActivitySearch"-->
-            <!--android:text="Single Object Activity Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleObjectActivitySearch"
+            android:text="Single Object Activity Search" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleObjectActivity"-->
-            <!--android:text="Multiple Object Activity" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleObjectActivity"
+            android:text="Multiple Object Activity" />
 
         <Button
             android:layout_width="wrap_content"
@@ -39,145 +39,145 @@
             android:onClick="onMultipleObjectActivitySearch"
             android:text="Object Selector Builder" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleValueActivity"-->
-            <!--android:text="Single Value Activity" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleValueActivity"
+            android:text="Single Value Activity" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleValueActivitySearch"-->
-            <!--android:text="Single Value Activity Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleValueActivitySearch"
+            android:text="Single Value Activity Search" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleValuesActivity"-->
-            <!--android:text="Multiple Values Activity" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleValuesActivity"
+            android:text="Multiple Values Activity" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleValuesActivitySearch"-->
-            <!--android:text="Multiple Values Activity Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleValuesActivitySearch"
+            android:text="Multiple Values Activity Search" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleObjectFragment"-->
-            <!--android:text="Single Object Fragment" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleObjectFragment"
+            android:text="Single Object Fragment" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleObjectFragmentSearch"-->
-            <!--android:text="Single Object Fragment Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleObjectFragmentSearch"
+            android:text="Single Object Fragment Search" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleObjectFragment"-->
-            <!--android:text="Multiple Object Fragment" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleObjectFragment"
+            android:text="Multiple Object Fragment" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleObjectFragmentSearch"-->
-            <!--android:text="Multiple Object Fragment Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleObjectFragmentSearch"
+            android:text="Multiple Object Fragment Search" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleValueFragment"-->
-            <!--android:text="Single Value Fragment" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleValueFragment"
+            android:text="Single Value Fragment" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleValueFragmentSearch"-->
-            <!--android:text="Single Value Fragment Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleValueFragmentSearch"
+            android:text="Single Value Fragment Search" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleValuesFragment"-->
-            <!--android:text="Multiple Values Fragment" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleValuesFragment"
+            android:text="Multiple Values Fragment" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleValuesFragmentSearch"-->
-            <!--android:text="Multiple Values Fragment Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleValuesFragmentSearch"
+            android:text="Multiple Values Fragment Search" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleObjectSelectorView"-->
-            <!--android:text="Single Object SelectorView" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleObjectSelectorView"
+            android:text="Single Object SelectorView" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleObjectSelectorViewSearch"-->
-            <!--android:text="Single Object SelectorView Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleObjectSelectorViewSearch"
+            android:text="Single Object SelectorView Search" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleObjectSelectorView"-->
-            <!--android:text="Multiple Object SelectorView" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleObjectSelectorView"
+            android:text="Multiple Object SelectorView" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleObjectSelectorViewSearch"-->
-            <!--android:text="Multiple Object SelectorView Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleObjectSelectorViewSearch"
+            android:text="Multiple Object SelectorView Search" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleValueSelectorView"-->
-            <!--android:text="Single Value SelectorView" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleValueSelectorView"
+            android:text="Single Value SelectorView" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onSingleValueSelectorViewSearch"-->
-            <!--android:text="Single Value SelectorView Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onSingleValueSelectorViewSearch"
+            android:text="Single Value SelectorView Search" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleValuesSelectorView"-->
-            <!--android:text="Multiple Values SelectorView" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleValuesSelectorView"
+            android:text="Multiple Values SelectorView" />
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:onClick="onMultipleValuesSelectorViewSearch"-->
-            <!--android:text="Multiple Values SelectorView Search" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onMultipleValuesSelectorViewSearch"
+            android:text="Multiple Values SelectorView Search" />
 
     </LinearLayout>
 

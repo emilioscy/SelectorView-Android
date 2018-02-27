@@ -47,7 +47,6 @@ public class SelectorViewTest extends AppCompatActivity implements OnObjectSelec
             case 7:
                 typeEight();
                 break;
-
         }
     }
 
@@ -56,7 +55,7 @@ public class SelectorViewTest extends AppCompatActivity implements OnObjectSelec
         selector.setVisibility(View.VISIBLE);
         selector.setOnValueSelectorListener(this);
         selector.setDisplayedValues(getDisplayedValues());
-        selector.setSelectedValue("smallin 5");
+        selector.setSelectedValue("Value 5");
     }
 
     private void typeSeven() {
@@ -64,7 +63,7 @@ public class SelectorViewTest extends AppCompatActivity implements OnObjectSelec
         selector.setVisibility(View.VISIBLE);
         selector.setOnValueSelectorListener(this);
         selector.setDisplayedValues(getDisplayedValues());
-        selector.setSelectedValue("smallin 5");
+        selector.setSelectedValue("Value 5");
     }
 
     private void typeSix() {
@@ -72,7 +71,7 @@ public class SelectorViewTest extends AppCompatActivity implements OnObjectSelec
         selector.setVisibility(View.VISIBLE);
         selector.setOnValueSelectorListener(this);
         selector.setDisplayedValues(getDisplayedValues());
-        selector.setSelectedValue("smallin 5");
+        selector.setSelectedValue("Value 5");
     }
 
     private void typeFive() {
@@ -80,7 +79,7 @@ public class SelectorViewTest extends AppCompatActivity implements OnObjectSelec
         selector.setVisibility(View.VISIBLE);
         selector.setOnValueSelectorListener(this);
         selector.setDisplayedValues(getDisplayedValues());
-        selector.setSelectedValue("smallin 5");
+        selector.setSelectedValue("Value 5");
     }
 
     private void typeFour() {
@@ -114,7 +113,7 @@ public class SelectorViewTest extends AppCompatActivity implements OnObjectSelec
     private List<String> getDisplayedValues() {
         List<String> array = new ArrayList<>();
         for (int x = 0; x < 200; x++) {
-            array.add("smallin " + x);
+            array.add("Value " + x);
         }
         return array;
     }
@@ -128,8 +127,8 @@ public class SelectorViewTest extends AppCompatActivity implements OnObjectSelec
 
     private List<String> getSelectedValues() {
         List<String> stringList = new ArrayList<>();
-        stringList.add("smallin 2");
-        stringList.add("smallin 4");
+        stringList.add("Value 2");
+        stringList.add("Value 4");
         return stringList;
     }
 

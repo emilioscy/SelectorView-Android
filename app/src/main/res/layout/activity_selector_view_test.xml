@@ -135,4 +135,34 @@
         selector:textSelectedColor="@color/black"
         selector:textSize="@dimen/text_size" />
 
+    <!--<com.emcy.selector.SelectorView-->
+        <!--android:id="@+id/selector9"-->
+        <!--android:layout_width="250dp"-->
+        <!--android:layout_height="400dp"-->
+        <!--selector:isMultipleSelection="true"-->
+        <!--selector:enableSearchView="true"-->
+        <!--selector:searchDrawable="@drawable/ic_search_icon"-->
+        <!--selector:searchCancelDrawable="@drawable/ic_clear_search"-->
+        <!--selector:searchHintColor="@color/colorPrimary"-->
+        <!--selector:searchHintText="@string/search_hint"-->
+        <!--selector:searchTextColor="@color/colorPrimary"-->
+        <!--selector:searchBackgroundColor="@color/searchViewColor"-->
+        <!--selector:searchSpacerBackgroundColor="@color/white"-->
+        <!--selector:searchCornerRadius="@dimen/searchViewCornerRadius"-->
+        <!--selector:objectClass="@string/dummy_object"-->
+        <!--selector:listItemHeight="@dimen/list_item_height"-->
+        <!--selector:textNormalColor="@color/colorPrimary"-->
+        <!--selector:textSelectedColor="@color/colorPrimary"-->
+        <!--selector:textSize="@dimen/text_size"-->
+        <!--selector:textMarginStartPercent="0.04"-->
+        <!--selector:listItemBackgroundColor="@color/white"-->
+        <!--selector:normalTickColor="@color/black"-->
+        <!--selector:tickDrawable="@drawable/ic_done_blue"-->
+        <!--selector:tickMarginEndPercent="0.96"-->
+        <!--selector:listItemSeparatorColor="@color/colorPrimary"-->
+        <!--selector:listItemSeparatorHeight="@dimen/separator_height"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
 </android.support.constraint.ConstraintLayout>
