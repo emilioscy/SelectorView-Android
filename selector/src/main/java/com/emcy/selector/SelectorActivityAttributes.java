@@ -11,7 +11,7 @@ public class SelectorActivityAttributes extends SelectorAttributes {
 
     @StyleRes
     private int activityTheme = -1;
-    @StringRes
+    @ColorRes
     private int toolbarColor = -1;
     @StringRes
     private int titleText = -1;
