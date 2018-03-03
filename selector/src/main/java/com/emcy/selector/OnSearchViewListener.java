@@ -1,7 +1,7 @@
 package com.emcy.selector;
 
 /**
- * The SelectorSearchView interface
+ * The SelectorSearchView interface.
  */
 
 interface OnSearchViewListener {
