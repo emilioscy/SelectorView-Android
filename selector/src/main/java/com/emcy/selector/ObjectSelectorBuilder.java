@@ -3,6 +3,7 @@ package com.emcy.selector;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -39,15 +40,15 @@ public class ObjectSelectorBuilder {
     private SelectorActivityAttributes activityAttrs;
     private SelectorBDFragmentAttributes bottomAttrs;
 
-    ObjectSelectorBuilder(OnObjectSelectorListener listener) {
+    ObjectSelectorBuilder(@Nullable OnObjectSelectorListener listener) {
         this.listener = listener;
     }
 
-    public static ObjectSelectorBuilder with(OnObjectSelectorListener listener) {
+    public static ObjectSelectorBuilder with(@Nullable OnObjectSelectorListener listener) {
         return instance = new ObjectSelectorBuilder(listener);
     }
 
-    public ObjectSelectorBuilder setClass(Class<? extends SelectorDataGetter> tClass) {
+    public ObjectSelectorBuilder setClass(@Nullable Class<? extends SelectorDataGetter> tClass) {
         this.tClass = tClass;
         return instance;
     }
@@ -67,7 +68,7 @@ public class ObjectSelectorBuilder {
         return instance;
     }
 
-    public ObjectSelectorBuilder setSelectedObjects(List<Long> selectedObjects) {
+    public ObjectSelectorBuilder setSelectedObjects(@Nullable List<Long> selectedObjects) {
         if (!multipleSelection) {
             throw new IllegalStateException("You cannot set multiple selected objects  when" +
                     "multipleSelection is false");
@@ -76,60 +77,69 @@ public class ObjectSelectorBuilder {
         return instance;
     }
 
-    public ObjectSelectorBuilder setSelectedValues(Long... selectedValues) {
+    public ObjectSelectorBuilder setSelectedValues(@Nullable Long... selectedValues) {
         if (!multipleSelection) {
             throw new IllegalStateException("You cannot set multiple selected objects  when " +
                     "multipleSelection is false");
         }
-        this.selectedObjects = Arrays.asList(selectedValues);
+        if (selectedValues != null)
+            this.selectedObjects = Arrays.asList(selectedValues);
         return instance;
     }
 
-    public void startActivityForResult(Activity activity, SelectorActivityAttributes attributes) {
-        this.activityAttrs = attributes;
-        Intent intent = new Intent(activity, SelectorActivity.class);
-        if (tClass != null) {
-            setIntentData(intent, true);
-            activity.startActivityForResult(intent, REQUEST_CODE);
-        } else {
-            Toast.makeText(activity, activity.getString(R.string.object_class_null), Toast.LENGTH_SHORT).show();
+    public void startActivityForResult(@Nullable Activity activity, @Nullable SelectorActivityAttributes attributes) {
+        if (activity != null) {
+            this.activityAttrs = attributes;
+            Intent intent = new Intent(activity, SelectorActivity.class);
+            if (tClass != null) {
+                setIntentData(intent, true);
+                activity.startActivityForResult(intent, REQUEST_CODE);
+            } else {
+                Toast.makeText(activity, activity.getString(R.string.object_class_null), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    public void startActivityForResult(Fragment fragment, SelectorActivityAttributes attributes) {
-        this.activityAttrs = attributes;
-        Intent intent = new Intent(fragment.getActivity(), SelectorActivity.class);
-        if (tClass != null) {
-            setIntentData(intent, false);
-            fragment.getActivity().startActivityForResult(intent, REQUEST_CODE);
-        } else {
-            Toast.makeText(fragment.getActivity(), fragment.getString(R.string.object_class_null), Toast.LENGTH_SHORT).show();
+    public void startActivityForResult(@Nullable Fragment fragment, @Nullable SelectorActivityAttributes attributes) {
+        if (fragment != null && fragment.getActivity() != null) {
+            this.activityAttrs = attributes;
+            Intent intent = new Intent(fragment.getActivity(), SelectorActivity.class);
+            if (tClass != null) {
+                setIntentData(intent, false);
+                fragment.getActivity().startActivityForResult(intent, REQUEST_CODE);
+            } else {
+                Toast.makeText(fragment.getActivity(), fragment.getString(R.string.object_class_null), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    public void showBottomDialogFragment(FragmentActivity activity, SelectorBDFragmentAttributes attributes) {
-        if (tClass != null) {
-            Bundle bundle = new Bundle();
-            this.bottomAttrs = attributes;
-            setBundleData(bundle, true);
-            BottomSheetDialogFragment selectorSheet = new SelectorBottomSheet();
-            selectorSheet.setArguments(bundle);
-            selectorSheet.show(activity.getSupportFragmentManager(), selectorSheet.getTag());
-        } else {
-            Toast.makeText(activity, activity.getString(R.string.object_class_null), Toast.LENGTH_SHORT).show();
+    public void showBottomDialogFragment(@Nullable FragmentActivity activity, @Nullable SelectorBDFragmentAttributes attributes) {
+        if (activity != null) {
+            if (tClass != null) {
+                Bundle bundle = new Bundle();
+                this.bottomAttrs = attributes;
+                setBundleData(bundle, true);
+                BottomSheetDialogFragment selectorSheet = new SelectorBottomSheet();
+                selectorSheet.setArguments(bundle);
+                selectorSheet.show(activity.getSupportFragmentManager(), selectorSheet.getTag());
+            } else {
+                Toast.makeText(activity, activity.getString(R.string.object_class_null), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    public void showBottomDialogFragment(Fragment fragment, SelectorBDFragmentAttributes attributes) {
-        if (tClass != null) {
-            Bundle bundle = new Bundle();
-            this.bottomAttrs = attributes;
-            setBundleData(bundle, false);
-            BottomSheetDialogFragment selectorSheet = new SelectorBottomSheet();
-            selectorSheet.setArguments(bundle);
-            selectorSheet.show(fragment.getActivity().getSupportFragmentManager(), selectorSheet.getTag());
-        } else {
-            Toast.makeText(fragment.getActivity(), fragment.getString(R.string.object_class_null), Toast.LENGTH_SHORT).show();
+    public void showBottomDialogFragment(@Nullable Fragment fragment, @Nullable SelectorBDFragmentAttributes attributes) {
+        if (fragment != null && fragment.getActivity() != null) {
+            if (tClass != null) {
+                Bundle bundle = new Bundle();
+                this.bottomAttrs = attributes;
+                setBundleData(bundle, false);
+                BottomSheetDialogFragment selectorSheet = new SelectorBottomSheet();
+                selectorSheet.setArguments(bundle);
+                selectorSheet.show(fragment.getActivity().getSupportFragmentManager(), selectorSheet.getTag());
+            } else {
+                Toast.makeText(fragment.getActivity(), fragment.getString(R.string.object_class_null), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -188,5 +198,5 @@ public class ObjectSelectorBuilder {
             }
         }
     }
-    
+
 }

@@ -252,8 +252,13 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
     @Override
     public void onObjectClick(long id) {
         startHandler();
-        (isFromActivity ? (OnObjectSelectorListener) getActivity() :
-                (OnObjectSelectorListener) getParentFragment()).onObjectClick(id);
+        try {
+            (isFromActivity ? (OnObjectSelectorListener) getActivity() :
+                    (OnObjectSelectorListener) getParentFragment()).onObjectClick(id);
+        } catch (ClassCastException | NullPointerException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -263,18 +268,27 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
 
     @Override
     public void onObjectsUpdated(List<Long> selectedIds) {
-        (isFromActivity ? (OnObjectSelectorListener) getActivity() :
-                (OnObjectSelectorListener) getParentFragment()).onObjectsUpdated(selectedIds);
-        if (attributes != null && attributes.getShowSelectedItemCount() && selectedIds != null) {
-            setSelectedCount(selectedIds.size());
+        try {
+            (isFromActivity ? (OnObjectSelectorListener) getActivity() :
+                    (OnObjectSelectorListener) getParentFragment()).onObjectsUpdated(selectedIds);
+            if (attributes != null && attributes.getShowSelectedItemCount() && selectedIds != null) {
+                setSelectedCount(selectedIds.size());
+            }
+        } catch (ClassCastException | NullPointerException e) {
+            e.printStackTrace();
         }
+
     }
 
     @Override
     public void onValueClick(String value) {
         startHandler();
-        (isFromActivity ? (OnValuesSelectorListener) getActivity() :
-                (OnValuesSelectorListener) getParentFragment()).onValueClick(value);
+        try {
+            (isFromActivity ? (OnValuesSelectorListener) getActivity() :
+                    (OnValuesSelectorListener) getParentFragment()).onValueClick(value);
+        } catch (ClassCastException | NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -284,17 +298,22 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
 
     @Override
     public void onValuesUpdated(List<String> selectedValues) {
-        (isFromActivity ? (OnValuesSelectorListener) getActivity() :
-                (OnValuesSelectorListener) getParentFragment()).onValuesUpdated(selectedValues);
-        if (attributes != null && attributes.getShowSelectedItemCount() && selectedValues != null) {
-            setSelectedCount(selectedValues.size());
+        try {
+            (isFromActivity ? (OnValuesSelectorListener) getActivity() :
+                    (OnValuesSelectorListener) getParentFragment()).onValuesUpdated(selectedValues);
+            if (attributes != null && attributes.getShowSelectedItemCount() && selectedValues != null) {
+                setSelectedCount(selectedValues.size());
+            }
+        } catch (ClassCastException | NullPointerException e) {
+            e.printStackTrace();
         }
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public void setData(List list) {
-        objectAdapter.refresh(list);
+        if (objectAdapter != null)
+            objectAdapter.refresh(list);
     }
 
     @Override
@@ -315,12 +334,16 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
 
     private void donePressed() {
         startHandler();
-        if (isObjectSelector) {
-            (isFromActivity ? (OnObjectSelectorListener) getActivity() :
-                    (OnObjectSelectorListener) getParentFragment()).onObjectsSelected(objectAdapter.getSelectedIds());
-        } else {
-            (isFromActivity ? (OnValuesSelectorListener) getActivity() :
-                    (OnValuesSelectorListener) getParentFragment()).onValuesSelected(valuesAdapter.getSelectedValues());
+        try {
+            if (isObjectSelector) {
+                (isFromActivity ? (OnObjectSelectorListener) getActivity() :
+                        (OnObjectSelectorListener) getParentFragment()).onObjectsSelected(objectAdapter.getSelectedIds());
+            } else {
+                (isFromActivity ? (OnValuesSelectorListener) getActivity() :
+                        (OnValuesSelectorListener) getParentFragment()).onValuesSelected(valuesAdapter.getSelectedValues());
+            }
+        } catch (ClassCastException | NullPointerException e) {
+            e.printStackTrace();
         }
     }
 

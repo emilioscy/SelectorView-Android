@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -51,21 +52,22 @@ public class ValuesSelectorBuilder {
     private SelectorActivityAttributes activityAttrs;
     private SelectorBDFragmentAttributes bottomAttrs;
 
-    ValuesSelectorBuilder(OnValuesSelectorListener listener) {
+    ValuesSelectorBuilder(@Nullable OnValuesSelectorListener listener) {
         this.listener = listener;
     }
 
-    public static ValuesSelectorBuilder with(OnValuesSelectorListener listener) {
+    public static ValuesSelectorBuilder with(@Nullable OnValuesSelectorListener listener) {
         return instance = new ValuesSelectorBuilder(listener);
     }
 
-    public ValuesSelectorBuilder setDisplayValues(List<String> values) {
+    public ValuesSelectorBuilder setDisplayValues(@Nullable List<String> values) {
         this.displayedValues = values;
         return instance;
     }
 
-    public ValuesSelectorBuilder setDisplayValues(String... values) {
-        this.displayedValues = Arrays.asList(values);
+    public ValuesSelectorBuilder setDisplayValues(@Nullable String... values) {
+        if (values != null)
+            this.displayedValues = Arrays.asList(values);
         return instance;
     }
 
@@ -75,15 +77,17 @@ public class ValuesSelectorBuilder {
     }
 
     public ValuesSelectorBuilder setSelectedValue(String value) {
-        if (multipleSelection) {
-            this.selectedValues = Collections.singletonList(value);
-        } else {
-            this.selectedValue = value;
+        if (value != null) {
+            if (multipleSelection) {
+                this.selectedValues = Collections.singletonList(value);
+            } else {
+                this.selectedValue = value;
+            }
         }
         return instance;
     }
 
-    public ValuesSelectorBuilder setSelectedValues(List<String> values) {
+    public ValuesSelectorBuilder setSelectedValues(@Nullable List<String> values) {
         if (!multipleSelection) {
             throw new IllegalStateException("You cannot set multiple selected values  when " +
                     "multipleSelection is false");
@@ -92,12 +96,13 @@ public class ValuesSelectorBuilder {
         return instance;
     }
 
-    public ValuesSelectorBuilder setSelectedValues(String... selectedValues) {
+    public ValuesSelectorBuilder setSelectedValues(@Nullable String... selectedValues) {
         if (!multipleSelection) {
             throw new IllegalStateException("You cannot set multiple selected values  when " +
                     "multipleSelection is false");
         }
-        this.selectedValues = Arrays.asList(selectedValues);
+        if (selectedValues != null)
+            this.selectedValues = Arrays.asList(selectedValues);
         return instance;
     }
 
@@ -134,6 +139,7 @@ public class ValuesSelectorBuilder {
         setIntentData(nIntent, b);
         nIntent.putExtra(Constants.LARGE_DATA, true);
         saveValuesInSharedPrefs(activity, displayedValues, nIntent);
+
     }
 
     private void saveValuesInSharedPrefs(final Activity activity, final List<String> displayedValues, final Intent intent) {
@@ -181,51 +187,59 @@ public class ValuesSelectorBuilder {
                 new LinkedBlockingQueue<Runnable>()));
     }
 
-    public void startActivityForResult(Activity activity, SelectorActivityAttributes attributes) {
-        if (displayedValues != null) {
-            this.activityAttrs = attributes;
-            Intent intent = new Intent(activity, SelectorActivity.class);
-            setIntentData(intent, true);
-            checkIntentSize(activity, intent);
-        } else {
-            Toast.makeText(activity, activity.getString(R.string.have_to_set_values), Toast.LENGTH_SHORT).show();
+    public void startActivityForResult(@Nullable Activity activity, SelectorActivityAttributes attributes) {
+        if (activity != null) {
+            if (displayedValues != null) {
+                this.activityAttrs = attributes;
+                Intent intent = new Intent(activity, SelectorActivity.class);
+                setIntentData(intent, true);
+                checkIntentSize(activity, intent);
+            } else {
+                Toast.makeText(activity, activity.getString(R.string.have_to_set_values), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    public void startActivityForResult(Fragment fragment, SelectorActivityAttributes attributes) {
-        if (displayedValues != null) {
-            this.activityAttrs = attributes;
-            Intent intent = new Intent(fragment.getActivity(), SelectorActivity.class);
-            setIntentData(intent, false);
-            checkIntentSize(fragment, intent);
-        } else {
-            Toast.makeText(fragment.getActivity(), fragment.getString(R.string.have_to_set_values), Toast.LENGTH_SHORT).show();
+    public void startActivityForResult(@Nullable Fragment fragment, SelectorActivityAttributes attributes) {
+        if (fragment != null && fragment.getActivity() != null) {
+            if (displayedValues != null) {
+                this.activityAttrs = attributes;
+                Intent intent = new Intent(fragment.getActivity(), SelectorActivity.class);
+                setIntentData(intent, false);
+                checkIntentSize(fragment, intent);
+            } else {
+                Toast.makeText(fragment.getActivity(), fragment.getString(R.string.have_to_set_values), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    public void showBottomDialogFragment(FragmentActivity activity, SelectorBDFragmentAttributes attributes) {
-        if (displayedValues != null) {
-            this.bottomAttrs = attributes;
-            Bundle bundle = new Bundle();
-            setBundleData(bundle, true);
-            BottomSheetDialogFragment selectorSheet = new SelectorBottomSheet();
-            selectorSheet.setArguments(bundle);
-            selectorSheet.show(activity.getSupportFragmentManager(), selectorSheet.getTag());
-        } else {
-            Toast.makeText(activity, activity.getString(R.string.have_to_set_values), Toast.LENGTH_SHORT).show();
+    public void showBottomDialogFragment(@Nullable FragmentActivity activity, SelectorBDFragmentAttributes attributes) {
+        if (activity != null) {
+            if (displayedValues != null) {
+                this.bottomAttrs = attributes;
+                Bundle bundle = new Bundle();
+                setBundleData(bundle, true);
+                BottomSheetDialogFragment selectorSheet = new SelectorBottomSheet();
+                selectorSheet.setArguments(bundle);
+                selectorSheet.show(activity.getSupportFragmentManager(), selectorSheet.getTag());
+            } else {
+                Toast.makeText(activity, activity.getString(R.string.have_to_set_values), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    public void showBottomDialogFragment(Fragment fragment, SelectorBDFragmentAttributes attributes) {
-        if (displayedValues != null) {
-            this.bottomAttrs = attributes;
-            Bundle bundle = new Bundle();
-            setBundleData(bundle, false);
-            BottomSheetDialogFragment selectorSheet = new SelectorBottomSheet();
-            selectorSheet.setArguments(bundle);
-            selectorSheet.show(fragment.getActivity().getSupportFragmentManager(), selectorSheet.getTag());
-        } else {
-            Toast.makeText(fragment.getActivity(), fragment.getString(R.string.have_to_set_values), Toast.LENGTH_SHORT).show();
+    public void showBottomDialogFragment(@Nullable Fragment fragment, SelectorBDFragmentAttributes attributes) {
+        if (fragment != null && fragment.getActivity() != null) {
+            if (displayedValues != null) {
+                this.bottomAttrs = attributes;
+                Bundle bundle = new Bundle();
+                setBundleData(bundle, false);
+                BottomSheetDialogFragment selectorSheet = new SelectorBottomSheet();
+                selectorSheet.setArguments(bundle);
+                selectorSheet.show(fragment.getActivity().getSupportFragmentManager(), selectorSheet.getTag());
+            } else {
+                Toast.makeText(fragment.getActivity(), fragment.getString(R.string.have_to_set_values), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
