@@ -24,7 +24,7 @@ allprojects {
 In your app's project build.gradle file add dependency:
 ```
 dependencies {
-    compile 'com.github.emilioscy:SelectorView-Android:v0.1.0'
+    compile 'com.github.emilioscy:SelectorView-Android:v0.1.2'
 }
 ```
 
