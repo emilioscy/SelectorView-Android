@@ -37,7 +37,7 @@ import static com.emcy.selector.Constants.SELECTOR_ATTRS;
 /**
  * Static builder for showing values in recycler adapter.
  * Pass SelectorActivityAttributes or SelectorBDFragmentAttributes on
- * startActivityForResult or showBottomDialogFragment respectively to customise the views
+ * startActivityForResult or showBottomDialogFragment respectively to customise the views.
  */
 
 public class ValuesSelectorBuilder {
