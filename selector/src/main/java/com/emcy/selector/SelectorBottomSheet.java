@@ -10,6 +10,8 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
@@ -30,6 +32,7 @@ import static com.emcy.selector.Constants.SELECTED_IDS;
 import static com.emcy.selector.Constants.SELECTED_VALUE;
 import static com.emcy.selector.Constants.SELECTED_VALUES;
 import static com.emcy.selector.Constants.SELECTOR_ATTRS;
+import static com.emcy.selector.R.id.doneTv;
 
 /**
  * BottomSheetDialog fragment for selecting objects or values
@@ -68,8 +71,11 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
     }
 
     private void initViewsAndData() {
-        attributes = getArguments().getParcelable(SELECTOR_ATTRS);
-        boolean isMultiple = getArguments().getBoolean(IS_MULTIPLE_SELECTION, false);
+        boolean isMultiple = false;
+        if (getArguments() != null) {
+            attributes = getArguments().getParcelable(SELECTOR_ATTRS);
+            isMultiple = getArguments().getBoolean(IS_MULTIPLE_SELECTION, false);
+        }
         initToolbar(isMultiple);
         initAdapter(isMultiple);
         initSelectorDataGetter();
@@ -80,12 +86,15 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
     private void initSearchView() {
         SelectorSearchView selectorSearchView = contentView.findViewById(R.id.selectorSearchView);
         View spacer = contentView.findViewById(R.id.searchViewSpacerBackgroundColor);
+        if (attributes != null && attributes.getListItemBackgroundColor() != -1 && getActivity() != null) {
+            contentView.findViewById(R.id.recyclerView).setBackgroundColor(ContextCompat.getColor(getActivity(), attributes.getListItemBackgroundColor()));
+        }
         if (attributes != null && attributes.isEnableSearchView()) {
             selectorSearchView.setVisibility(View.VISIBLE);
             spacer.setVisibility(View.VISIBLE);
             selectorSearchView.initInterface(this);
             selectorSearchView.setAttributes(attributes);
-            if (attributes.getSearchSpacerBackgroundColor() != -1) {
+            if (attributes.getSearchSpacerBackgroundColor() != -1 && getActivity() != null) {
                 spacer.setBackgroundColor(ContextCompat.getColor(getActivity(), attributes.getSearchSpacerBackgroundColor()));
             }
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
@@ -114,11 +123,15 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
     }
 
     private void initToolbar(boolean isMultiple) {
+        Toolbar toolbar = contentView.findViewById(R.id.toolbar);
         TextView doneTv = contentView.findViewById(R.id.doneTv);
         TextView clearTv = contentView.findViewById(R.id.clearTv);
         ImageView clearImage = contentView.findViewById(R.id.clearImage);
         ImageView doneImage = contentView.findViewById(R.id.doneImage);
         titleTv = contentView.findViewById(R.id.titleTv);
+        if (attributes != null && attributes.getToolbarColor() != -1 && getActivity() != null) {
+            toolbar.setBackgroundColor(attributes.getToolbarColor());
+        }
         if (!isMultiple) {
             doneTv.setVisibility(View.GONE);
             clearTv.setVisibility(View.GONE);
@@ -151,7 +164,7 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
         doneTv.setOnClickListener(this);
         if (attributes.getDoneButtonText() != -1)
             doneTv.setText(getString(attributes.getDoneButtonText()));
-        if (attributes.getDoneButtonTextColor() != -1)
+        if (attributes.getDoneButtonTextColor() != -1 && getActivity() != null)
             doneTv.setTextColor(ContextCompat.getColor(getActivity(), attributes.getDoneButtonTextColor()));
         if (attributes.getDoneButtonTextSize() != -1)
             doneTv.setTextSize(TypedValue.COMPLEX_UNIT_PX,
@@ -318,7 +331,7 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.doneTv || view.getId() == R.id.doneImage) {
+        if (view.getId() == doneTv || view.getId() == R.id.doneImage) {
             donePressed();
         } else if (view.getId() == R.id.clearTv || view.getId() == R.id.clearImage) {
             clearPressed();

@@ -1,6 +1,7 @@
 package selectorexample.androidapp.com.selectorviewexample;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -212,6 +213,9 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
                 .setTextNormalColor(R.color.black)
                 .setNormalTickColor(R.color.black)
                 .setBackArrowColor(R.color.blue)
+                .setToolbarColor(R.color.blue)
+                .setListItemBackgroundColor(R.color.pink)
+                .setBackArrowColor(R.color.pink)
                 .enableSelectedItemsCount()
                 .setTextMarginStartPercent(0.04f)
                 .setTickMarginEndPercent(0.96f);
@@ -234,7 +238,10 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
         return SelectorBDFragmentAttributes.instance()
                 .setTextNormalColor(R.color.black)
                 .setNormalTickColor(R.color.black)
+                .setDoneButtonTextColor(R.color.pink)
+                .setListItemBackgroundColor(R.color.pink)
                 .enableSelectedItemsCount()
+                .setToolbarColor(Color.RED)
                 .setTextMarginStartPercent(0.04f)
                 .setTickMarginEndPercent(0.96f);
     }
@@ -251,7 +258,7 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
 
     private List<String> getDisplayedValues() {
         List<String> array = new ArrayList<>();
-        for (int x = 0; x < 200; x++) {
+        for (int x = 0; x < 4; x++) {
             array.add("Value " + x);
         }
         return array;

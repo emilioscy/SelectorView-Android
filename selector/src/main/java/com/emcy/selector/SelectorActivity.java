@@ -133,8 +133,11 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
     }
 
     private void initSearchView() {
-        selectorSearchView = (SelectorSearchView) findViewById(R.id.selectorSearchView);
+        selectorSearchView = findViewById(R.id.selectorSearchView);
         View spacer = findViewById(R.id.searchViewSpacerBackgroundColor);
+        if (attributes != null && attributes.getListItemBackgroundColor() != -1){
+            findViewById(R.id.recyclerView).setBackgroundColor(ContextCompat.getColor(this, attributes.getListItemBackgroundColor()));
+        }
         if (attributes != null && attributes.isEnableSearchView()) {
             selectorSearchView.setVisibility(View.VISIBLE);
             spacer.setVisibility(View.VISIBLE);
@@ -173,11 +176,16 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
     }
 
     private void setActionsButtons(boolean isMultipleSelection) {
-        TextView doneTv = (TextView) findViewById(R.id.doneTv);
-        TextView clearTv = (TextView) findViewById(R.id.clearTv);
-        ImageView clearImage = (ImageView) findViewById(R.id.clearImageView);
-        ImageView doneImage = (ImageView) findViewById(R.id.doneImageView);
-        titleTv = (TextView) findViewById(R.id.titleTv);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        TextView doneTv = findViewById(R.id.doneTv);
+        TextView clearTv = findViewById(R.id.clearTv);
+        ImageView clearImage = findViewById(R.id.clearImageView);
+        ImageView doneImage = findViewById(R.id.doneImageView);
+        titleTv = findViewById(R.id.titleTv);
+
+        if (attributes != null && attributes.getToolbarColor() != -1){
+            toolbar.setBackgroundColor(ContextCompat.getColor(this, attributes.getToolbarColor()));
+        }
 
         if (!isMultipleSelection) {
             doneTv.setVisibility(View.GONE);
