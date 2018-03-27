@@ -125,6 +125,9 @@ public class SelectorView extends FrameLayout implements OnObjectSelectorListene
     private void initSearchView() {
         selectorSearchView = selectorView.findViewById(R.id.selectorSearchView);
         View spacer = selectorView.findViewById(R.id.searchViewSpacerBackgroundColor);
+        if (attrs != null && attrs.getListItemBackgroundColor() != -1){
+            selectorView.findViewById(R.id.recyclerView).setBackgroundColor(ContextCompat.getColor(getContext(), attrs.getListItemBackgroundColor()));
+        }
         if (attrs != null && attrs.isEnableSearchView()) {
             selectorSearchView.setVisibility(View.VISIBLE);
             spacer.setVisibility(View.VISIBLE);

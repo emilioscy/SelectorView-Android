@@ -112,7 +112,7 @@ public class SelectorViewTest extends AppCompatActivity implements OnObjectSelec
 
     private List<String> getDisplayedValues() {
         List<String> array = new ArrayList<>();
-        for (int x = 0; x < 200; x++) {
+        for (int x = 0; x < 4; x++) {
             array.add("Value " + x);
         }
         return array;

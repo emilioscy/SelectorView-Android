@@ -19,6 +19,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         selector:objectClass="@string/dummy_object"
+        selector:listItemBackgroundColor="@color/pink"
         selector:textSelectedColor="@color/black"
         selector:textSize="@dimen/text_size" />
 
@@ -132,6 +133,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         selector:withValues="true"
+        selector:listItemBackgroundColor="@color/pink"
         selector:textSelectedColor="@color/black"
         selector:textSize="@dimen/text_size" />
 

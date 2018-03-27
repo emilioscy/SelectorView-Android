@@ -254,9 +254,9 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
 
     private void setBackButton() {
         final Drawable upArrow = ContextCompat.getDrawable(this, R.drawable.ic_back_home);
-        if (attributes != null && attributes.getBackArrowColor() != -1)
+        if (attributes != null && attributes.getBackArrowColor() != -1 && upArrow != null)
             upArrow.setColorFilter(ContextCompat.getColor(this, attributes.getBackArrowColor()), PorterDuff.Mode.SRC_ATOP);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(this);
         if (getSupportActionBar() != null) {
@@ -276,7 +276,7 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
 
     @SuppressWarnings("unchecked")
     private void setAdapterData(boolean isMultiple) {
-        RecyclerView rv = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView rv = findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
         if (isMultiple) {
             if (isObjectSelector) {
