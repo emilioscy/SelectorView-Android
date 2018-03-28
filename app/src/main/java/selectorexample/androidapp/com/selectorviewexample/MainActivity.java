@@ -1,7 +1,6 @@
 package selectorexample.androidapp.com.selectorviewexample;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -239,9 +238,9 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
                 .setTextNormalColor(R.color.black)
                 .setNormalTickColor(R.color.black)
                 .setDoneButtonTextColor(R.color.pink)
-                .setListItemBackgroundColor(R.color.pink)
+                .setListItemBackgroundColor(R.color.blue)
                 .enableSelectedItemsCount()
-                .setToolbarColor(Color.RED)
+                .setToolbarColor(R.color.colorAccent)
                 .setTextMarginStartPercent(0.04f)
                 .setTickMarginEndPercent(0.96f);
     }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -39,6 +40,8 @@ import static com.emcy.selector.Constants.SELECTED_ID;
 import static com.emcy.selector.Constants.SELECTED_IDS;
 import static com.emcy.selector.Constants.SELECTED_VALUE;
 import static com.emcy.selector.Constants.SELECTED_VALUES;
+import static com.emcy.selector.R.id.clearTv;
+import static com.emcy.selector.R.id.doneTv;
 
 /**
  * Activity for result for selecting objects or values
@@ -135,8 +138,8 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
     private void initSearchView() {
         selectorSearchView = findViewById(R.id.selectorSearchView);
         View spacer = findViewById(R.id.searchViewSpacerBackgroundColor);
-        if (attributes != null && attributes.getListItemBackgroundColor() != -1){
-            findViewById(R.id.recyclerView).setBackgroundColor(ContextCompat.getColor(this, attributes.getListItemBackgroundColor()));
+        if (attributes != null && attributes.getListItemBackgroundColor() != -1) {
+            findViewById(R.id.recyclerView).setBackgroundColor(getColorCont(attributes.getListItemBackgroundColor()));
         }
         if (attributes != null && attributes.isEnableSearchView()) {
             selectorSearchView.setVisibility(View.VISIBLE);
@@ -144,7 +147,7 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
             selectorSearchView.initInterface(this);
             selectorSearchView.setAttributes(attributes);
             if (attributes.getSearchSpacerBackgroundColor() != -1) {
-                spacer.setBackgroundColor(ContextCompat.getColor(this, attributes.getSearchSpacerBackgroundColor()));
+                spacer.setBackgroundColor(getColorCont(attributes.getSearchSpacerBackgroundColor()));
             }
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                     attributes.getSearchWidth() != -1 ? getResources().getDimensionPixelSize(attributes.getSearchWidth()) : RelativeLayout.LayoutParams.MATCH_PARENT,
@@ -183,8 +186,8 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
         ImageView doneImage = findViewById(R.id.doneImageView);
         titleTv = findViewById(R.id.titleTv);
 
-        if (attributes != null && attributes.getToolbarColor() != -1){
-            toolbar.setBackgroundColor(ContextCompat.getColor(this, attributes.getToolbarColor()));
+        if (attributes != null && attributes.getToolbarColor() != -1) {
+            toolbar.setBackgroundColor(getColorCont(attributes.getToolbarColor()));
         }
 
         if (!isMultipleSelection) {
@@ -219,8 +222,9 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
         doneTv.setOnClickListener(this);
         if (attributes.getDoneButtonText() != -1)
             doneTv.setText(getString(attributes.getDoneButtonText()));
-        if (attributes.getDoneButtonTextColor() != -1)
-            doneTv.setTextColor(ContextCompat.getColor(this, attributes.getDoneButtonTextColor()));
+        if (attributes.getDoneButtonTextColor() != -1) {
+            doneTv.setTextColor(getColorCont(attributes.getDoneButtonTextColor()));
+        }
         if (attributes.getDoneButtonTextSize() != -1)
             doneTv.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                     getResources().getDimensionPixelSize(attributes.getDoneButtonTextSize()));
@@ -230,8 +234,13 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
         clearTv.setOnClickListener(this);
         if (attributes.getClearButtonText() != -1)
             clearTv.setText(getString(attributes.getClearButtonText()));
-        if (attributes.getClearButtonTextColor() != -1)
-            clearTv.setTextColor(ContextCompat.getColor(this, attributes.getClearButtonTextColor()));
+        if (attributes.getClearButtonTextColor() != -1) {
+            try {
+                clearTv.setTextColor(getColorCont(attributes.getClearButtonTextColor()));
+            } catch (Resources.NotFoundException e) {
+                e.printStackTrace();
+            }
+        }
         if (attributes.getClearButtonTextSize() != -1)
             clearTv.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                     getResources().getDimensionPixelSize(attributes.getClearButtonTextSize()));
@@ -254,8 +263,9 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
 
     private void setBackButton() {
         final Drawable upArrow = ContextCompat.getDrawable(this, R.drawable.ic_back_home);
-        if (attributes != null && attributes.getBackArrowColor() != -1 && upArrow != null)
-            upArrow.setColorFilter(ContextCompat.getColor(this, attributes.getBackArrowColor()), PorterDuff.Mode.SRC_ATOP);
+        if (attributes != null && attributes.getBackArrowColor() != -1 && upArrow != null) {
+            upArrow.setColorFilter(getColorCont(attributes.getBackArrowColor()), PorterDuff.Mode.SRC_ATOP);
+        }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(this);
@@ -302,7 +312,7 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
 
     @SuppressWarnings("unchecked")
     private void setAdapterDataFromPrefs(boolean isMultiple, List<String> values) {
-        RecyclerView rv = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView rv = findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
         if (isMultiple) {
             ArrayList<String> list = (ArrayList<String>) getIntent().getSerializableExtra(SELECTED_VALUES);
@@ -410,9 +420,9 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
     public void onClick(View view) {
         if (view.getId() == -1) {
             onBackPressed();
-        } else if (view.getId() == R.id.doneTv || view.getId() == R.id.doneImageView) {
+        } else if (view.getId() == doneTv || view.getId() == R.id.doneImageView) {
             handleResult();
-        } else if (view.getId() == R.id.clearTv || view.getId() == R.id.clearImageView) {
+        } else if (view.getId() == clearTv || view.getId() == R.id.clearImageView) {
             clearPressed();
         }
     }
@@ -484,5 +494,14 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
         } else {
             setToolbarTitle();
         }
+    }
+
+    private int getColorCont(int colorRes) {
+        try {
+            return ContextCompat.getColor(this, colorRes);
+        } catch (Resources.NotFoundException e) {
+            return 0;
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 package com.emcy.selector;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
@@ -125,8 +126,8 @@ public class SelectorView extends FrameLayout implements OnObjectSelectorListene
     private void initSearchView() {
         selectorSearchView = selectorView.findViewById(R.id.selectorSearchView);
         View spacer = selectorView.findViewById(R.id.searchViewSpacerBackgroundColor);
-        if (attrs != null && attrs.getListItemBackgroundColor() != -1){
-            selectorView.findViewById(R.id.recyclerView).setBackgroundColor(ContextCompat.getColor(getContext(), attrs.getListItemBackgroundColor()));
+        if (attrs != null && attrs.getListItemBackgroundColor() != -1) {
+            selectorView.findViewById(R.id.recyclerView).setBackgroundColor(getColor(attrs.getListItemBackgroundColor()));
         }
         if (attrs != null && attrs.isEnableSearchView()) {
             selectorSearchView.setVisibility(View.VISIBLE);
@@ -134,7 +135,7 @@ public class SelectorView extends FrameLayout implements OnObjectSelectorListene
             selectorSearchView.initInterface(this);
             selectorSearchView.setAttributes(attrs);
             if (attrs.getSearchSpacerBackgroundColor() != -1) {
-                spacer.setBackgroundColor(ContextCompat.getColor(getContext(), attrs.getSearchSpacerBackgroundColor()));
+                spacer.setBackgroundColor(getColor(attrs.getSearchSpacerBackgroundColor()));
             }
         } else {
             selectorSearchView.setVisibility(View.GONE);
@@ -336,6 +337,14 @@ public class SelectorView extends FrameLayout implements OnObjectSelectorListene
     @Override
     public void onValuesUpdated(List<String> selectedValues) {
         if (valueListener != null) valueListener.onValuesUpdated(selectedValues);
+    }
+
+    private int getColor(int colorRes) {
+        try {
+            return ContextCompat.getColor(getContext(), colorRes);
+        } catch (Resources.NotFoundException e) {
+            return 0;
+        }
     }
 
 }
