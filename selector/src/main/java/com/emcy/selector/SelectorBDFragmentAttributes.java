@@ -16,6 +16,7 @@ public class SelectorBDFragmentAttributes extends SelectorAttributes {
     private int titleTextColor = -1;
     @DimenRes
     private int titleTextSize = -1;
+    private String titleFont = "";
     @StringRes
     private int doneButtonText = -1;
     @ColorRes
@@ -32,6 +33,7 @@ public class SelectorBDFragmentAttributes extends SelectorAttributes {
     private int clearButtonTextSize = -1;
     @DrawableRes
     private int clearDrawable = -1;
+    private String actionButtonsFont = "";
     private boolean showSelectedItemCount;
     private SelectorAttributes selectorAttributes;
 
@@ -160,12 +162,31 @@ public class SelectorBDFragmentAttributes extends SelectorAttributes {
         return this;
     }
 
+    public SelectorBDFragmentAttributes setTitleFont(String typeFacePath){
+        this.titleFont = typeFacePath;
+        return this;
+    }
+
+    public SelectorBDFragmentAttributes setActionButtonsFont(String typeFacePath){
+        this.actionButtonsFont = typeFacePath;
+        return this;
+    }
+
+    public String getTitleFont(){
+        return this.titleFont;
+    }
+
+    public String getActionButtonsFont(){
+        return this.actionButtonsFont;
+    }
+
     private SelectorBDFragmentAttributes(Parcel in) {
         super(in);
         toolbarColor = in.readInt();
         titleText = in.readInt();
         titleTextColor = in.readInt();
         titleTextSize = in.readInt();
+        titleFont = in.readString();
         doneButtonText = in.readInt();
         doneButtonTextColor = in.readInt();
         doneButtonTextSize = in.readInt();
@@ -174,6 +195,7 @@ public class SelectorBDFragmentAttributes extends SelectorAttributes {
         clearButtonTextColor = in.readInt();
         clearButtonTextSize = in.readInt();
         clearDrawable = in.readInt();
+        actionButtonsFont = in.readString();
         showSelectedItemCount = in.readByte() != 0;
         selectorAttributes = in.readParcelable(SelectorAttributes.class.getClassLoader());
     }
@@ -202,6 +224,7 @@ public class SelectorBDFragmentAttributes extends SelectorAttributes {
         parcel.writeInt(titleText);
         parcel.writeInt(titleTextColor);
         parcel.writeInt(titleTextSize);
+        parcel.writeString(titleFont);
         parcel.writeInt(doneButtonText);
         parcel.writeInt(doneButtonTextColor);
         parcel.writeInt(doneButtonTextSize);
@@ -210,6 +233,7 @@ public class SelectorBDFragmentAttributes extends SelectorAttributes {
         parcel.writeInt(clearButtonTextColor);
         parcel.writeInt(clearButtonTextSize);
         parcel.writeInt(clearDrawable);
+        parcel.writeString(actionButtonsFont);
         parcel.writeByte((byte) (showSelectedItemCount ? 1 : 0));
         parcel.writeParcelable(selectorAttributes, i);
     }
@@ -483,5 +507,27 @@ public class SelectorBDFragmentAttributes extends SelectorAttributes {
     public SelectorBDFragmentAttributes setTickMarginEndPercent(float tickMarginEndPercent) {
         this.selectorAttributes.setTickMarginEndPercent(tickMarginEndPercent);
         return this;
+    }
+
+    @Override
+    public SelectorBDFragmentAttributes setTextFont(String typeFacePath) {
+        this.selectorAttributes.setTextFont(typeFacePath);
+        return this;
+    }
+
+    @Override
+    public SelectorBDFragmentAttributes setSearchFont(String typeFacePath) {
+        this.selectorAttributes.setSearchFont(typeFacePath);
+        return this;
+    }
+
+    @Override
+    public String getTextFont() {
+        return this.selectorAttributes.getTextFont();
+    }
+
+    @Override
+    public String getSearchFont() {
+        return this.selectorAttributes.getSearchFont();
     }
 }

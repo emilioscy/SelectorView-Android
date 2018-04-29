@@ -82,6 +82,8 @@ public class SelectorView extends FrameLayout implements OnObjectSelectorListene
             this.attrs.setTickMarginEndPercent(a.getFloat(R.styleable.ObjectSelectorTheme_tickMarginEndPercent, Constants.TICK_MARGIN_END_PERCENT));
             this.attrs.setListItemSeparatorColor(a.getResourceId(R.styleable.ObjectSelectorTheme_listItemSeparatorColor, R.color.colorPrimary));
             this.attrs.setListItemSeparatorHeight(a.getResourceId(R.styleable.ObjectSelectorTheme_listItemSeparatorHeight, R.dimen.separator_height));
+            this.attrs.setTextFont(a.getString(R.styleable.ObjectSelectorTheme_textFont));
+            this.attrs.setSearchFont(a.getString(R.styleable.ObjectSelectorTheme_searchTextFont));
         } finally {
             a.recycle();
         }

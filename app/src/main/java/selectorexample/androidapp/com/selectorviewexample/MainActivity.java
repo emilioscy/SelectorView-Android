@@ -215,6 +215,9 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
                 .setToolbarColor(R.color.blue)
                 .setListItemBackgroundColor(R.color.pink)
                 .setBackArrowColor(R.color.pink)
+                .setTitleFont("fonts/Roboto-Thin.ttf")
+                .setActionButtonsFont("fonts/Roboto-BoldItalic.ttf")
+                .setTextFont("fonts/Roboto-BoldItalic.ttf")
                 .enableSelectedItemsCount()
                 .setTextMarginStartPercent(0.04f)
                 .setTickMarginEndPercent(0.96f);
@@ -227,6 +230,7 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
                 .setBackArrowColor(R.color.blue)
                 .enableSelectedItemsCount()
                 .setEnableSearchView(true)
+                .setSearchFont("fonts/Roboto-ThinItalic.ttf")
                 .setSearchCornerRadius(R.dimen.searchViewCornerRadius)
                 .setSearchBackgroundColor(R.color.searchViewColor)
                 .setTextMarginStartPercent(0.04f)
@@ -240,6 +244,9 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
                 .setDoneButtonTextColor(R.color.pink)
                 .setListItemBackgroundColor(R.color.blue)
                 .enableSelectedItemsCount()
+                .setTitleFont("fonts/Roboto-BoldItalic.ttf")
+                .setActionButtonsFont("fonts/Roboto-BoldItalic.ttf")
+                .setTextFont("fonts/Roboto-BoldItalic.ttf")
                 .setToolbarColor(R.color.colorAccent)
                 .setTextMarginStartPercent(0.04f)
                 .setTickMarginEndPercent(0.96f);
@@ -251,6 +258,10 @@ public class MainActivity extends AppCompatActivity implements OnValuesSelectorL
                 .setNormalTickColor(R.color.black)
                 .enableSelectedItemsCount()
                 .setEnableSearchView(true)
+                .setTitleFont("fonts/Roboto-Thin.ttf")
+                .setActionButtonsFont("fonts/Roboto-BoldItalic.ttf")
+                .setSearchFont("fonts/Roboto-ThinItalic.ttf")
+                .setTextFont("fonts/Roboto-BoldItalic.ttf")
                 .setTextMarginStartPercent(0.04f)
                 .setTickMarginEndPercent(0.96f);
     }

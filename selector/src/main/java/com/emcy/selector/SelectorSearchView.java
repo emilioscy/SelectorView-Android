@@ -11,6 +11,7 @@ import android.support.v7.widget.SearchView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -93,6 +94,8 @@ public class SelectorSearchView extends CardView implements TextWatcher, View.On
                 }
                 if (attrs.getSearchHintText() != -1)
                     textView.setHint(getContext().getString(attrs.getSearchHintText()));
+                Log.d("testFont","Searchview " + attrs.getSearchFont());
+                Helper.setTypeFace(getContext(), textView, attrs.getSearchFont());
             } catch (Exception e) {
                 e.printStackTrace();
             }

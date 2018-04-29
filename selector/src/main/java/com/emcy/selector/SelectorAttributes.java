@@ -21,6 +21,7 @@ class SelectorAttributes implements Parcelable {
     @DimenRes
     private int textSize = -1;
     private float textMarginStartPercent;
+    private String textFont = "";
     @ColorRes
     private int listItemBackgroundColor = -1;
     @ColorRes
@@ -49,6 +50,7 @@ class SelectorAttributes implements Parcelable {
     private int searchSpacerBackgroundColor = -1;
     @DimenRes
     private int searchCornerRadius = -1;
+    private String searchTextFont = "";
     @DimenRes
     private int searchWidth = -1;
     @DimenRes
@@ -71,6 +73,7 @@ class SelectorAttributes implements Parcelable {
         textSelectedColor = in.readInt();
         textSize = in.readInt();
         textMarginStartPercent = in.readFloat();
+        textFont = in.readString();
         listItemBackgroundColor = in.readInt();
         normalTickColor = in.readInt();
         tickDrawable = in.readInt();
@@ -86,6 +89,7 @@ class SelectorAttributes implements Parcelable {
         searchBackgroundColor = in.readInt();
         searchSpacerBackgroundColor = in.readInt();
         searchCornerRadius = in.readInt();
+        searchTextFont = in.readString();
         searchWidth = in.readInt();
         searchHeight = in.readInt();
         searchMarginLeft = in.readInt();
@@ -106,6 +110,7 @@ class SelectorAttributes implements Parcelable {
         parcel.writeInt(textSelectedColor);
         parcel.writeInt(textSize);
         parcel.writeFloat(textMarginStartPercent);
+        parcel.writeString(textFont);
         parcel.writeInt(listItemBackgroundColor);
         parcel.writeInt(normalTickColor);
         parcel.writeInt(tickDrawable);
@@ -121,6 +126,7 @@ class SelectorAttributes implements Parcelable {
         parcel.writeInt(searchBackgroundColor);
         parcel.writeInt(searchSpacerBackgroundColor);
         parcel.writeInt(searchCornerRadius);
+        parcel.writeString(searchTextFont);
         parcel.writeInt(searchWidth);
         parcel.writeInt(searchHeight);
         parcel.writeInt(searchMarginLeft);
@@ -350,6 +356,24 @@ class SelectorAttributes implements Parcelable {
     public SelectorAttributes setSearchCornerRadius(int searchCornerRadius) {
         this.searchCornerRadius = searchCornerRadius;
         return this;
+    }
+
+    public SelectorAttributes setTextFont(String typeFacePath) {
+        this.textFont = typeFacePath;
+        return this;
+    }
+
+    public SelectorAttributes setSearchFont(String typeFacePath) {
+        this.searchTextFont = typeFacePath;
+        return this;
+    }
+
+    public String getTextFont() {
+        return  this.textFont;
+    }
+
+    public String getSearchFont() {
+        return this.searchTextFont;
     }
 
     public static final Creator<SelectorAttributes> CREATOR = new Creator<SelectorAttributes>() {

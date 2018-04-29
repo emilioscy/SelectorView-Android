@@ -85,6 +85,15 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
         initSelectorDataGetter();
         initBehavior();
         initSearchView();
+        initFonts();
+    }
+
+    private void initFonts() {
+        if (getActivity() != null) {
+            Helper.setTypeFace(getActivity(), titleTv, attributes.getTitleFont());
+            Helper.setTypeFace(getActivity(), (TextView) contentView.findViewById(R.id.clearTv), attributes.getActionButtonsFont());
+            Helper.setTypeFace(getActivity(), (TextView) contentView.findViewById(R.id.doneTv), attributes.getActionButtonsFont());
+        }
     }
 
     private void initSearchView() {

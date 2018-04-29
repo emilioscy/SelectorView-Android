@@ -19,6 +19,7 @@ public class SelectorActivityAttributes extends SelectorAttributes {
     private int titleTextSize = -1;
     @ColorRes
     private int titleTextColor = -1;
+    private String titleFont = "";
     @StringRes
     private int doneButtonText = -1;
     @DimenRes
@@ -37,6 +38,7 @@ public class SelectorActivityAttributes extends SelectorAttributes {
     private int clearDrawable = -1;
     @ColorRes
     private int backArrowColor = -1;
+    private String actionButtonsFont = "";
     private SelectorAttributes selectorAttributes;
     private boolean showSelectedItemCount;
 
@@ -169,7 +171,7 @@ public class SelectorActivityAttributes extends SelectorAttributes {
         return backArrowColor;
     }
 
-    public boolean getShowSelectedItemCount(){
+    public boolean getShowSelectedItemCount() {
         return showSelectedItemCount;
     }
 
@@ -178,9 +180,27 @@ public class SelectorActivityAttributes extends SelectorAttributes {
         return this;
     }
 
-    public SelectorActivityAttributes enableSelectedItemsCount(){
+    public SelectorActivityAttributes enableSelectedItemsCount() {
         this.showSelectedItemCount = true;
         return this;
+    }
+
+    public SelectorActivityAttributes setTitleFont(String typeFacePath) {
+        this.titleFont = typeFacePath;
+        return this;
+    }
+
+    public SelectorActivityAttributes setActionButtonsFont(String typeFacePath) {
+        this.actionButtonsFont = typeFacePath;
+        return this;
+    }
+
+    public String getTitleFont() {
+        return this.titleFont;
+    }
+
+    public String getActionButtonsFont() {
+        return this.actionButtonsFont;
     }
 
     private SelectorActivityAttributes(Parcel in) {
@@ -189,6 +209,7 @@ public class SelectorActivityAttributes extends SelectorAttributes {
         titleText = in.readInt();
         titleTextSize = in.readInt();
         titleTextColor = in.readInt();
+        titleFont = in.readString();
         doneButtonText = in.readInt();
         doneButtonTextSize = in.readInt();
         doneButtonTextColor = in.readInt();
@@ -198,6 +219,7 @@ public class SelectorActivityAttributes extends SelectorAttributes {
         clearButtonTextSize = in.readInt();
         clearDrawable = in.readInt();
         backArrowColor = in.readInt();
+        actionButtonsFont = in.readString();
         showSelectedItemCount = in.readByte() != 0;
         selectorAttributes = in.readParcelable(SelectorAttributes.class.getClassLoader());
     }
@@ -226,6 +248,7 @@ public class SelectorActivityAttributes extends SelectorAttributes {
         parcel.writeInt(titleText);
         parcel.writeInt(titleTextSize);
         parcel.writeInt(titleTextColor);
+        parcel.writeString(titleFont);
         parcel.writeInt(doneButtonText);
         parcel.writeInt(doneButtonTextSize);
         parcel.writeInt(doneButtonTextColor);
@@ -235,6 +258,7 @@ public class SelectorActivityAttributes extends SelectorAttributes {
         parcel.writeInt(clearButtonTextSize);
         parcel.writeInt(clearDrawable);
         parcel.writeInt(backArrowColor);
+        parcel.writeString(actionButtonsFont);
         parcel.writeByte((byte) (showSelectedItemCount ? 1 : 0));
         parcel.writeParcelable(selectorAttributes, i);
     }
@@ -485,5 +509,27 @@ public class SelectorActivityAttributes extends SelectorAttributes {
     public SelectorActivityAttributes setTickMarginEndPercent(float tickMarginEndPercent) {
         this.selectorAttributes.setTickMarginEndPercent(tickMarginEndPercent);
         return this;
+    }
+
+    @Override
+    public SelectorActivityAttributes setTextFont(String typeFacePath) {
+        this.selectorAttributes.setTextFont(typeFacePath);
+        return this;
+    }
+
+    @Override
+    public SelectorActivityAttributes setSearchFont(String typeFacePath) {
+        this.selectorAttributes.setSearchFont(typeFacePath);
+        return this;
+    }
+
+    @Override
+    public String getTextFont() {
+        return this.selectorAttributes.getTextFont();
+    }
+
+    @Override
+    public String getSearchFont() {
+        return this.selectorAttributes.getSearchFont();
     }
 }

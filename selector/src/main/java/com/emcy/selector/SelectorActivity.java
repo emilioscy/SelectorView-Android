@@ -176,6 +176,13 @@ public class SelectorActivity extends AppCompatActivity implements SelectorData.
     private void initToolbar() {
         setBackButton();
         setActionsButtons(getIntent().getBooleanExtra(IS_MULTIPLE_SELECTION, false));
+        setFonts();
+    }
+
+    private void setFonts() {
+        Helper.setTypeFace(this, titleTv, attributes.getTitleFont());
+        Helper.setTypeFace(this, (TextView) findViewById(R.id.clearTv), attributes.getActionButtonsFont());
+        Helper.setTypeFace(this, (TextView) findViewById(R.id.doneTv), attributes.getActionButtonsFont());
     }
 
     private void setActionsButtons(boolean isMultipleSelection) {

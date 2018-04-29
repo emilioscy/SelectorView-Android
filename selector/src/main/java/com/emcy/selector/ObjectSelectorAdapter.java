@@ -8,6 +8,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -280,6 +281,8 @@ class ObjectSelectorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                             context.getResources().getDimensionPixelSize(selectorAttributes.getListItemSeparatorHeight()));
                     separatorView.setLayoutParams(params);
                 }
+                Log.d("testFont","Searchview " + selectorAttributes.getTextFont());
+                Helper.setTypeFace(context, textView, selectorAttributes.getTextFont());
             }
         }
 
