@@ -1,4 +1,4 @@
-# SelectorView-Android
+# **SelectorView**
 
 ## **Description**
 
@@ -24,7 +24,7 @@ allprojects {
 In your app's project build.gradle file add dependency:
 ```
 dependencies {
-    compile 'com.github.emilioscy:SelectorView-Android:v0.1.2'
+    compile 'com.github.emilioscy:SelectorView-Android:v0.1.5'
 }
 ```
 
@@ -51,7 +51,7 @@ public void startActivityForResult(View view) {
 The first argument ```.with(this)``` is callback of class `OnObjectSelectorListener` which implements three functions.
 
 ```
-    @Override
+   @Override
     public void onObjectClick(long id) {
     }
 
@@ -147,6 +147,7 @@ This are all the attributes that can be used to customise the selector.
 | setTitleText     | int @StringRes           | Title       |
 | setTitleTextSize  | int @DimenRes           | Title text size       |
 | setTitleTextColor     | int @ColorRes           | Title text color      |
+| setTitleFont | String fontPath | Title font
 | setDoneButtonText     | int @StringRes           | Done button text       |
 | setDoneButtonTextSize     | int @DimenRes           | Done button text size       |
 | setDoneButtonTextColor     | int @ColorRes           | Done button text color       |
@@ -156,6 +157,7 @@ This are all the attributes that can be used to customise the selector.
 | setClearButtonTextColor     | int @ColorRes           | Clear button text color       |
 | setClearDrawable     | int @DrawableRes           | Uses drawable instead of clear button|
 | setBackArrowColor     | int @ColorRes           | Home button tint color       |
+|setActionButtonsFont | String fontPath | Clear and Done buttons font
 | enableSelectedItemsCount     |            | Enables the selected objects count        |
 
 You can also edit the list item of the adapter using the following attributes :
@@ -169,6 +171,7 @@ You can also edit the list item of the adapter using the following attributes :
 | setTextSelectedColor     | int @ColorRes           | Selected text color       |
 | textSize  | int @DimenRes           | Text size       |
 | setTextMarginStartPercent     | float margin           |The text margin start as percentage of it's parent|
+| setTextFont | String fontPath | The list item text font|
 | setListItemBackgroundColor     | int @ColorRes           | RecyclerView item color      |
 | setNormalTickColor     | int @ColorRes           | The color of the selected object drawable (tick) |
 | setTickDrawable     | int @DrawableRes           | Selected object drawable       |
@@ -187,6 +190,7 @@ You can also edit the list item of the adapter using the following attributes :
 | setSearchWidth     |     int @DimenRes       | searchView width|
 | setSearchHeight     |     int @DimenRes       | searchView height|
 | setSearchMargins     |int @DimenRes,int @DimenRes,int @DimenRes,int @DimenRes| searchView margin left, top, right, bottom|
+| setSearchFont | String fontPath | searchView text font|
 
 You can also show the same data with the same builder in `BottomSheetDialogFragment` using :
 
@@ -290,6 +294,8 @@ The selectorView includes the RecyclerViewAdapter and the SearchView. You can us
          selector:tickMarginEndPercent="0.96"
          selector:listItemSeparatorColor="@color/colorPrimary"
          selector:listItemSeparatorHeight="@dimen/separator_height"
+         selector:textFont="fonts/Roboto-BoldItalic.ttf"
+         selector:searchTextFont="fonts/Roboto-ThinItalic.ttf"
          app:layout_constraintLeft_toLeftOf="parent"
          app:layout_constraintRight_toRightOf="parent"
          app:layout_constraintTop_toTopOf="parent" />
@@ -350,3 +356,14 @@ Other methods of SearchView:
 | getSelected()     | |returns the selected objects or values with the callback|
 | setQuery()    |String query |set manually search query       |
 | setClass()    |int @StringRes |set manually the object class       |
+
+
+
+
+
+
+
+
+
+
+
