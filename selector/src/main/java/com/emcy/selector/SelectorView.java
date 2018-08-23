@@ -74,7 +74,7 @@ public class SelectorView extends FrameLayout implements OnObjectSelectorListene
             this.attrs.setListItemHeight(a.getResourceId(R.styleable.ObjectSelectorTheme_listItemHeight, R.dimen.list_item_height));
             this.attrs.setTextNormalColor(a.getResourceId(R.styleable.ObjectSelectorTheme_textNormalColor, R.color.colorPrimary));
             this.attrs.setTextSelectedColor(a.getResourceId(R.styleable.ObjectSelectorTheme_textSelectedColor, R.color.colorPrimary));
-            this.attrs.setTextSize(a.getResourceId(R.styleable.ObjectSelectorTheme_textSize, R.dimen.text_size));
+            this.attrs.setTextSize(a.getResourceId(R.styleable.ObjectSelectorTheme_textSize, R.dimen.my_text_size));
             this.attrs.setTextMarginStartPercent(a.getFloat(R.styleable.ObjectSelectorTheme_textMarginStartPercent, Constants.TEXT_MARGIN_START_PERCENT));
             this.attrs.setListItemBackgroundColor(a.getResourceId(R.styleable.ObjectSelectorTheme_listItemBackgroundColor, R.color.white));
             this.attrs.setNormalTickColor(a.getResourceId(R.styleable.ObjectSelectorTheme_normalTickColor, R.color.black));
