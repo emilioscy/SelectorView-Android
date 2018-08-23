@@ -17,9 +17,9 @@
         <attr name="listItemHeight" format="reference" />
         <attr name="textNormalColor" format="reference" />
         <attr name="textSelectedColor" format="reference" />
-        <attr name="textSize" format="reference" />
+        <attr name="mTextSize" format="reference" />
         <attr name="textMarginStartPercent" format="float" />
-        <attr name="textFont" format="string" />
+        <attr name="mTextFont" format="string" />
         <attr name="listItemBackgroundColor" format="reference" />
         <attr name="normalTickColor" format="reference" />
         <attr name="tickDrawable" format="reference" />

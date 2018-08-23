@@ -74,7 +74,7 @@ public class SelectorView extends FrameLayout implements OnObjectSelectorListene
             this.attrs.setListItemHeight(a.getResourceId(R.styleable.ObjectSelectorTheme_listItemHeight, R.dimen.list_item_height));
             this.attrs.setTextNormalColor(a.getResourceId(R.styleable.ObjectSelectorTheme_textNormalColor, R.color.colorPrimary));
             this.attrs.setTextSelectedColor(a.getResourceId(R.styleable.ObjectSelectorTheme_textSelectedColor, R.color.colorPrimary));
-            this.attrs.setTextSize(a.getResourceId(R.styleable.ObjectSelectorTheme_textSize, R.dimen.my_text_size));
+            this.attrs.setTextSize(a.getResourceId(R.styleable.ObjectSelectorTheme_mTextSize, R.dimen.my_text_size));
             this.attrs.setTextMarginStartPercent(a.getFloat(R.styleable.ObjectSelectorTheme_textMarginStartPercent, Constants.TEXT_MARGIN_START_PERCENT));
             this.attrs.setListItemBackgroundColor(a.getResourceId(R.styleable.ObjectSelectorTheme_listItemBackgroundColor, R.color.white));
             this.attrs.setNormalTickColor(a.getResourceId(R.styleable.ObjectSelectorTheme_normalTickColor, R.color.black));
@@ -82,7 +82,7 @@ public class SelectorView extends FrameLayout implements OnObjectSelectorListene
             this.attrs.setTickMarginEndPercent(a.getFloat(R.styleable.ObjectSelectorTheme_tickMarginEndPercent, Constants.TICK_MARGIN_END_PERCENT));
             this.attrs.setListItemSeparatorColor(a.getResourceId(R.styleable.ObjectSelectorTheme_listItemSeparatorColor, R.color.colorPrimary));
             this.attrs.setListItemSeparatorHeight(a.getResourceId(R.styleable.ObjectSelectorTheme_listItemSeparatorHeight, R.dimen.separator_height));
-            this.attrs.setTextFont(a.getString(R.styleable.ObjectSelectorTheme_textFont));
+            this.attrs.setTextFont(a.getString(R.styleable.ObjectSelectorTheme_mTextFont));
             this.attrs.setSearchFont(a.getString(R.styleable.ObjectSelectorTheme_searchTextFont));
         } finally {
             a.recycle();
