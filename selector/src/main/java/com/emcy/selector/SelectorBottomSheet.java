@@ -36,7 +36,6 @@ import static com.emcy.selector.R.id.clearImage;
 import static com.emcy.selector.R.id.clearTv;
 import static com.emcy.selector.R.id.doneImage;
 import static com.emcy.selector.R.id.doneTv;
-import static com.emcy.selector.R.id.selectorSearchView;
 
 /**
  * BottomSheetDialog fragment for selecting objects or values
@@ -85,7 +84,8 @@ public class SelectorBottomSheet extends BottomSheetDialogFragment
         initSelectorDataGetter();
         initBehavior();
         initSearchView();
-        initFonts();
+        if (attributes != null)
+            initFonts();
     }
 
     private void initFonts() {

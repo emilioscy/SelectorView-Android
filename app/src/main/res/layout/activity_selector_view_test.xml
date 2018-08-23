@@ -18,12 +18,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        selector:textFont="fonts/Roboto-BoldItalic.ttf"
+        selector:mTextFont="fonts/Roboto-BoldItalic.ttf"
         selector:searchTextFont="fonts/Roboto-ThinItalic.ttf"
         selector:objectClass="@string/dummy_object"
         selector:listItemBackgroundColor="@color/pink"
         selector:textSelectedColor="@color/black"
-        selector:textSize="@dimen/text_size" />
+        selector:mTextSize="@dimen/my_text_size" />
 
     <com.emcy.selector.SelectorView
         android:id="@+id/selector2"
@@ -33,7 +33,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="32dp"
         android:visibility="gone"
-        selector:textFont="fonts/Roboto-BoldItalic.ttf"
+        selector:mTextFont="fonts/Roboto-BoldItalic.ttf"
         selector:searchTextFont="fonts/Roboto-ThinItalic.ttf"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -41,7 +41,7 @@
         selector:enableSearchView="true"
         selector:objectClass="@string/dummy_object"
         selector:textSelectedColor="@color/black"
-        selector:textSize="@dimen/text_size" />
+        selector:mTextSize="@dimen/my_text_size" />
 
     <com.emcy.selector.SelectorView
         android:id="@+id/selector3"
@@ -57,7 +57,7 @@
         selector:isMultipleSelection="true"
         selector:objectClass="@string/dummy_object"
         selector:textSelectedColor="@color/black"
-        selector:textSize="@dimen/text_size" />
+        selector:mTextSize="@dimen/my_text_size" />
 
     <com.emcy.selector.SelectorView
         android:id="@+id/selector4"
@@ -74,7 +74,7 @@
         selector:isMultipleSelection="true"
         selector:objectClass="@string/dummy_object"
         selector:textSelectedColor="@color/black"
-        selector:textSize="@dimen/text_size" />
+        selector:mTextSize="@dimen/my_text_size" />
 
     <com.emcy.selector.SelectorView
         android:id="@+id/selector5"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toTopOf="parent"
         selector:withValues="true"
         selector:textSelectedColor="@color/black"
-        selector:textSize="@dimen/text_size" />
+        selector:mTextSize="@dimen/my_text_size" />
 
     <com.emcy.selector.SelectorView
         android:id="@+id/selector6"
@@ -105,7 +105,7 @@
         app:layout_constraintTop_toTopOf="parent"
         selector:withValues="true"
         selector:textSelectedColor="@color/black"
-        selector:textSize="@dimen/text_size" />
+        selector:mTextSize="@dimen/my_text_size" />
 
     <com.emcy.selector.SelectorView
         android:id="@+id/selector7"
@@ -121,7 +121,7 @@
         app:layout_constraintTop_toTopOf="parent"
         selector:withValues="true"
         selector:textSelectedColor="@color/black"
-        selector:textSize="@dimen/text_size" />
+        selector:mTextSize="@dimen/my_text_size" />
 
     <com.emcy.selector.SelectorView
         android:id="@+id/selector8"
@@ -139,7 +139,7 @@
         selector:withValues="true"
         selector:listItemBackgroundColor="@color/pink"
         selector:textSelectedColor="@color/black"
-        selector:textSize="@dimen/text_size" />
+        selector:mTextSize="@dimen/my_text_size" />
 
     <!--<com.emcy.selector.SelectorView-->
         <!--android:id="@+id/selector9"-->
@@ -159,7 +159,7 @@
         <!--selector:listItemHeight="@dimen/list_item_height"-->
         <!--selector:textNormalColor="@color/colorPrimary"-->
         <!--selector:textSelectedColor="@color/colorPrimary"-->
-        <!--selector:textSize="@dimen/text_size"-->
+        <!--selector:mTextSize="@dimen/my_text_size"-->
         <!--selector:textMarginStartPercent="0.04"-->
         <!--selector:listItemBackgroundColor="@color/white"-->
         <!--selector:normalTickColor="@color/black"-->

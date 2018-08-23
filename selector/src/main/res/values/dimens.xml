@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="separator_height">1dp</dimen>
-    <dimen name="text_size">16sp</dimen>
+    <dimen name="my_text_size">16sp</dimen>
     <dimen name="list_item_height">60dp</dimen>
     <dimen name="searchViewCornerRadius">8dp</dimen>
     <dimen name="searchViewElevation">6dp</dimen>
