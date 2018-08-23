@@ -94,7 +94,6 @@ public class SelectorSearchView extends CardView implements TextWatcher, View.On
                 }
                 if (attrs.getSearchHintText() != -1)
                     textView.setHint(getContext().getString(attrs.getSearchHintText()));
-                Log.d("testFont","Searchview " + attrs.getSearchFont());
                 Helper.setTypeFace(getContext(), textView, attrs.getSearchFont());
             } catch (Exception e) {
                 e.printStackTrace();
